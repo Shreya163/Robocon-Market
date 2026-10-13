@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboCon 2026 | MESCOE Pune</title>
+    <style>
+        :root {
+            --bg-color: #0a0a12;
+            --panel-color: #121225;
+            --accent-cyan: #00f2fe;
+            --accent-pink: #fe019a;
+            --text-main: #ffffff;
+            --text-muted: #a0a0c0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px 20px;
+            background: radial-gradient(circle at center, rgba(18, 18, 37, 0.6) 0%, var(--bg-color) 70%);
+            position: relative;
+        }
+
+        .college-title {
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 40%, #8585a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* CTA Buttons */
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #000;
+            background: linear-gradient(45deg, var(--accent-cyan), #00c6ff);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.7);
+        }
+
+        /* Event Tracks Section */
+        .section-container {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--accent-pink);
+            bottom: -8px;
+            left: 25%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--panel-color);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 30px;
+            transition: border 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-pink);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-cyan);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .prize-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(254, 1, 154, 0.15);
+            border: 1px solid var(--accent-pink);
+            color: var(--accent-pink);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        /* Conversion Section */
+        .conversion-panel {
+            background: linear-gradient(135deg, #121225 0%, #1a1a3a 100%);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .conversion-panel h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .conversion-panel p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #555577;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+    <!-- Google Analytics Integration Baseline Template -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Conversion Goal Click Tracker Function
+        function trackRegistrationClick() {
+            gtag('event', 'click_registration_link', {
+                'event_category': 'Engagement',
+                'event_label': 'Google Form Link Outbound Button'
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ROBOCON '26</div>
+        <div class="nav-links">
+            <a href="#events">Competitions</a>
+            <a href="#register">Register</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <p class="college-title">MESCOE Pune Presents</p>
+        <h1 class="main-title">ROBOCON 2026</h1>
+        <p class="hero-tagline">The ultimate battle arena for engineers and innovators at Modern Education Society's Wadia College of Engineering, Pune.</p>
+        <!-- Dynamic Outbound Call to Action Link -->
+        <a href="https://forms.google.com/" target="_blank" onclick="trackRegistrationClick()" class="cta-btn">Register on Google Forms</a>
+    </div>
+
+    <div id="events" class="section-container">
+        <div class="section-header">
+            <h2>Featured Competitions</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>RoboWars</h3>
+                <p>Heavyweight custom-built metal combat robots square off in an enclosed bulletproof arena to determine absolute tactical dominance.</p>
+                <span class="prize-tag">Prize Pool: ₹45,000</span>
+            </div>
+            <div class="card">
+                <h3>Maze Solver</h3>
+                <p>Build custom autonomous micromouse bots engineered to scan, chart, path-plan, and escape complex grid layouts in record seconds.</p>
+                <span class="prize-tag">Prize Pool: ₹20,000</span>
+            </div>
+            <div class="card">
+                <h3>RC Drone Racing</h3>
+                <p>High-speed visual line of sight and FPV obstacle maneuvering courses challenging precision pilot control telemetry maps.</p>
+                <span class="prize-tag">Prize Pool: ₹30,000</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="register" class="section-container">
+        <div class="conversion-panel">
+            <h2>Secure Your Team Pass</h2>
+            <p>Ready to compete against the best tech minds across Pune? Fill out our official Google Form registration page to lock in your slot.</p>
+            <a href="https://forms.google.com/" target="_blank" onclick="trackRegistrationClick()" class="cta-btn">Open Official Google Form</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Modern Education Society's Wadia College of Engineering (MESCOE), Pune. For Academic Digital Marketing Presentation Purposes.</p>
+    </footer>
+
+</body>
+</html>
